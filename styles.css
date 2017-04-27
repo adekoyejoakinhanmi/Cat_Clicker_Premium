@@ -1,0 +1,17 @@
+
+body{
+	padding-top: 50px;
+}
+.nav-item{
+	cursor: pointer;
+	
+}
+.counter{
+	font-weight: bold;
+}
+img{
+	width: 100%;
+}
+.active{
+	background-color: #eaeaea;
+}

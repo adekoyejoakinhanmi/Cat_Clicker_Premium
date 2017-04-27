@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cat Clicker Premium</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+	
+	<link href="../mywing.css" rel="stylesheet"/>
+	<link href="styles.css" rel="stylesheet"/>
+</head>
+<body>
+	<div class="container" id="app">
+		
+		<div class="row">
+			<div class="col left">
+				<h1>Cat Clicker Premium</h1>
+			</div>
+		</div>
+		
+		<div class="nav" v-on:click.prevent>
+			<a class="nav-item" 
+			   v-for="cat in catsList"
+			   @click="setActiveCat(cat)" 
+			   :class="[cat === activeCat ? 'active' : '']"
+			>
+				{{cat.name}}
+			</a>
+		</div>	
+		
+		<div class="row">
+			
+			<div class="col">
+				<img :src="activeCat.url" @click="incrementClickCount">
+				<br/>
+				<p class="counter">Click Count: {{activeCat.clickCount}}</p>
+			</div>
+			
+			<div class="col">
+				<button v-show="!catEdit" @click="toggleEdit">Edit Cat</button>
+				
+				<form v-if="catEdit" v-on:submit.prevent>
+					
+					<label for="catName">Name</label>
+					<input id="catName" type="text" v-model="editingCat.name" :placeholder="activeCat.name">
+					
+					<label for="catClickCount">No. of Clicks</label>
+					<input id="catClickCount" type="number" min="0" v-model='editingCat.clickCount' :placeholder="activeCat.clickCount">				
+					
+					<label for="catUrl">Url</label>
+					<input id="catUrl" type="url" v-model='editingCat.url' :placeholder="activeCat.url">
+					
+					<button type="submit" @click="updateCat">Save</button>
+					<button type="button" @click="toggleEdit">Cancel</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	
+	<script src="../vue.min.js"></script>
+	<script src="script.js"></script>
+</body>
+</html>
