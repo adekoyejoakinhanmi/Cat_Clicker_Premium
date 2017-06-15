@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 	
-	<link href="../mywing.css" rel="stylesheet"/>
+	<link href="../assets/mywing.css" rel="stylesheet"/>
 	<link href="styles.css" rel="stylesheet"/>
 </head>
 <body>
@@ -31,9 +31,11 @@
 		<div class="row">
 			
 			<div class="col">
-				<img :src="activeCat.url" @click="incrementClickCount">
-				<br/>
-				<p class="counter">Click Count: {{activeCat.clickCount}}</p>
+				<transition name="fade">
+					<img :src="activeCat.url" @click="incrementClickCount">
+				</transition>
+					<br/>
+					<p class="counter">Click Count: {{activeCat.clickCount}}</p>
 			</div>
 			
 			<div class="col">
@@ -58,7 +60,7 @@
 	</div>
 	
 	
-	<script src="../vue.min.js"></script>
+	<script src="../assets/vue.min.js"></script>
 	<script src="script.js"></script>
 </body>
 </html>
