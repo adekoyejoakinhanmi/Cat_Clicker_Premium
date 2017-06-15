@@ -1,5 +1,3 @@
-Vue.config.devtools = true;
-
 let cats = [
 	{
 		id : 1,
